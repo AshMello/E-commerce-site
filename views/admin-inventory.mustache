@@ -10,8 +10,15 @@
     <h1>Admin Manage Inventory</h1>
 
     <form class="inventory" action="/inventory" method="POST">
-      <input type="text" name="thumbnail" placeholder="Thumbnail" />
+
+      {{! <input type="text" name="thumbnail" placeholder="Thumbnail" /> }}
       <input type="text" name="name" placeholder="name" />
+        <div class="card">
+          <label class="file-upload-container" for="file-upload">
+            Select an Image
+            <input id="file_upload" name="thumbnail" value=`{{picture}}` type="file"/>
+          </label>
+        </div>
       <select>
         <option name= "Necklace" value="Necklace">Necklaces</option>
         <option name= "Bracelets" value="Bracelets">Bracelets</option>
@@ -34,5 +41,9 @@
     </form>
 
     {{> footer}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/scripts/inventory.js"></script>
   </body>
+
+
 </html>

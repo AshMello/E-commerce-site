@@ -8,6 +8,7 @@ const models = require('./models')
 const path = require('path')
 const app = express()
 const PORT = 8080 //process.env.PORT
+const axios = require('axios')
 
 const VIEWS_PATH = path.join(__dirname, '/views');
 
@@ -19,7 +20,7 @@ app.use(session({
   saveUninitialized: true
 }))
 
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.engine('mustache', mustacheExpress(VIEWS_PATH + '/partials', '.mustache'))
 app.set('views', './views')
