@@ -35,7 +35,7 @@ function isAuthenticated(req,res,next) {
 }
 
  // Logging into the app and checking the username and password to the database
- app.post('/login', (req,res) => {
+ app.post('/admin-login', (req,res) => {
 
   let username = req.body.username
   let password = req.body.password
@@ -54,9 +54,9 @@ function isAuthenticated(req,res,next) {
             if (req.session){
               req.session.user = user.dataValues
           }
-          res.redirect('/home')
+          res.redirect('/admin-inventory')
         } else {
-          res.render("login", {message: "Invalid username or password!"})
+          res.render("admin-login", {message: "Invalid username or password!"})
         }
       })
     }
@@ -64,7 +64,7 @@ function isAuthenticated(req,res,next) {
 })
 
 
-// admin logout 
+// admin logout
 app.post('/logout', function(req, res, next) {
   if (req.session) {
     req.session.destroy(function(err) {
