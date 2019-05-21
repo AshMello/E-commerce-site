@@ -46,7 +46,7 @@ function isAuthenticated(req,res,next) {
     }
   }).then(function(user) {
     if (user === null) {
-      res.render("login", {message: "Invalid username or password!"})
+      res.render("admin-login", {message: "Invalid username or password!"})
     }
       else {
         bcrypt.compare(password, user.password,(error,result) => {
@@ -65,13 +65,13 @@ function isAuthenticated(req,res,next) {
 
 
 // admin logout
-app.post('/logout', function(req, res, next) {
+app.post('/admin-logout', function(req, res, next) {
   if (req.session) {
     req.session.destroy(function(err) {
       if(err) {
         return next(err);
       } else {
-        res.redirect('/login');
+        res.redirect('/admin-login');
       }
     });
   }
