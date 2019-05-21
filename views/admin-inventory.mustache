@@ -9,6 +9,26 @@
 
     <h1>Admin Manage Inventory</h1>
 
+    <form class="inventory" action="/inventory" method="POST">
+      <input type="text" name="thumbnail" placeholder="Thumbnail" />
+      <input type="text" name="name" placeholder="name" />
+      <select>
+        <option name= "Necklace" value="Necklace">Necklaces</option>
+        <option name= "Bracelets" value="Bracelets">Bracelets</option>
+        <option name= "Rings" value="Rings">Rings</option>
+        <option name= "Earrings" value="Earrings">Earrings</option>
+        <option name= "Belt Buckles" value="Belt Buckles">Belt Buckles</option>
+      </select>
+      <select>
+        <option name= "Vintage" value="Vintage">Vintage</option>
+        <option name= "Silver" value="Silver">Silver</option>
+        <option name= "Beadwork" value="Beadwork">Beadwork</option>
+      </select>
+      <textarea name="description" placeholder="Enter Description"></textarea>
+      <input type="text" name="price" placeholder="price" />
+      <button type="submit">Save</button>
+    </form>
+
     <form class="logout" action="/admin-logout" method="POST">
       <button type="submit">Logout</button>
     </form>
