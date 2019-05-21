@@ -99,6 +99,41 @@ app.post('/logout', function(req, res, next) {
 
 
 
+//render mustache pages
+
+app.get('/', (req, res) => {
+  res.redirect('/main')
+})
+
+app.get('/main', (req, res) => {
+  res.render('main')
+})
+
+app.get('/products', (req, res) => {
+  res.render('products')
+})
+
+app.get('/about', (req, res) => {
+  res.render('about')
+})
+
+app.get('/reviews', (req, res) => {
+  res.render('reviews')
+})
+
+app.get('/contact', (req, res) => {
+  res.render('contact')
+})
+
+app.get('/admin-login', (req, res) => {
+  res.render('admin-login')
+})
+
+app.get('/admin-inventory', (req, res) => {
+  res.render('admin-inventory')
+})
+
+
 app.listen(PORT, function() {
   console.log("Server is running...")
 })
