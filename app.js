@@ -10,6 +10,7 @@ const app = express()
 const adminCred = require('./routes/admin-credentials')
 const authenticate = require('./routes/admin-authenticate')
 const PORT = 8080 //process.env.PORT
+const axios = require('axios')
 
 const VIEWS_PATH = path.join(__dirname, '/views');
 
@@ -21,13 +22,45 @@ app.use(session({
   saveUninitialized: true
 }))
 
+
 app.all('/admin/*', authenticate)
 app.use('/', adminCred)
+
+
+app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.engine('mustache', mustacheExpress(VIEWS_PATH + '/partials', '.mustache'))
 app.set('views', './views')
 app.set('view engine', 'mustache')
+
+
+//posting inventory to db
+app.post('/admin-inventory', (req, res) => {
+  let thumbnail = req.body.image
+  let name = req.body.name
+  let category = req.body.selectType
+  let style = req.body.selectGenre
+  let description = req.body.description
+  let price = req.body.price
+
+  let item = models.Product.build({
+    thumbnail: thumbnail,
+    name: name,
+    category: category,
+    style: style,
+    description: description,
+    price: price
+  })
+  item.save().then((savedItem) => {
+  }).catch(function(err) {
+  }).then(function(){
+    res.redirect('admin-inventory')
+  })
+})
+
+
+
 
 //render mustache pages
 
