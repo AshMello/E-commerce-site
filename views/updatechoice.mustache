@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+   {{> menu}}
+
+{{#product}}
+<form action="/updatechoice" method="POST">
+      <input type="text" name="name" value={{name}}></input>
+            <div class="card">
+            <label class="file-upload-container" for="file-upload">
+                Select an Image
+                <input id="file_upload" type="file"/>
+                <img src='{{thumbnail}}' id="imgPreview"/>
+                <input type="hidden" id="imageUrlHidden" name={{thumbnail}}></input>
+            </label>
+            </div>
+      <select name="selectType" id="selectType">
+        <option name= "category" value="Necklace">Necklaces</option>
+        <option name= "category" value="Bracelets">Bracelets</option>
+        <option name= "category" value="Rings">Rings</option>
+        <option name= "category" value="Earrings">Earrings</option>
+        <option name= "category" value="Belt Buckles">Belt Buckles</option>
+      </select>
+      <select name="selectGenre" id="selectGenre">
+        <option name= "style" value="Vintage">Vintage</option>
+        <option name= "style" value="Silver">Silver</option>
+        <option name= "style" value="Beadwork">Beadwork</option>
+      </select>
+      <textarea name="description" value={{description}}></textarea>
+      <input type="text" name="price" value={{price}} />
+      <input type="hidden" name="id" value={{id}} />
+      <button type="submit">Save</button>
+    </form>
+    {{/product}}
+
+
+
+   {{> footer}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/scripts/inventory.js"></script>
+  </body>
