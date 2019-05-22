@@ -95,8 +95,29 @@ app.post('/admin-logout', function(req, res, next) {
 //   })
 // })
 
+//posting inventory to db
+app.post('/admin-inventory', (req, res) => {
+  let thumbnail = req.body.image
+  let name = req.body.name
+  let category = req.body.selectType
+  let style = req.body.selectGenre
+  let description = req.body.description
+  let price = req.body.price
 
-
+  let item = models.Product.build({
+    thumbnail: thumbnail,
+    name: name,
+    category: category,
+    style: style,
+    description: description,
+    price: price
+  })
+  item.save().then((savedItem) => {
+  }).catch(function(err) {
+  }).then(function(){
+    res.redirect('admin-inventory')
+  })
+})
 
 
 

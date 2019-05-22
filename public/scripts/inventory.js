@@ -4,6 +4,8 @@ const CLOUDINARY_UPLOAD_PRESET = 'vigb9ffx';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/jewelsite/image/upload';
 
 const fileUpload = document.getElementById('file_upload');
+const imgPreview = document.getElementById('imgPreview');
+const imageUrlHidden = document.getElementById('imageUrlHidden')
 
 fileUpload.addEventListener('change', function(event) {
     var file = event.target.files[0];
@@ -19,9 +21,7 @@ fileUpload.addEventListener('change', function(event) {
         },
         data: formData
     }).then(function(res) {
-        picture = res.data.secure_url 
-        console.log(picture);
-    }).catch(function(err) {
-        console.log(err);
-    })
+        imageUrlHidden.value = res.data.secure_url
+        imgPreview.src = res.data.secure_url
+})
 })
