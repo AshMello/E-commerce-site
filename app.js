@@ -61,10 +61,76 @@ app.post('/admin-inventory', (req, res) => {
   })
 })
 
+//View all from db
+app.post('/admin-viewall', (req,res) => {
+  models.Product.findAll().then(product => {
+    res.render('admin-inventory', {product: product})
+  })
+})
+
+//View category from db
+app.post('/admin-viewfiltered', (req,res) => {
+  models.Product.findAll({
+    where: {
+      category: req.body.selectCat}
+  }).then(product => {
+    res.render('admin-inventory', {product: product})
+  })
+})
+
+//admin selects product to update
+app.get('/editproduct/:id', (req,res)=> {
+  models.Product.findOne({
+      where: {
+        id : req.params.id
+      }
+    }).then((product) => {
+      res.render('updatechoice', {product: product})
+    })
+  })
+
+//admin updates product
+app.post('/updatechoice',(req,res)=>{
+  let thumbnail = req.body.image
+  let name = req.body.name
+  let category = req.body.selectType
+  let style = req.body.selectGenre
+  let description = req.body.description
+  let price = req.body.price
+
+  models.Product.update({
+      thumbnail: thumbnail,
+      name: name,
+      category: category,
+      style: style,
+      description: description,
+      price: price
+    },{
+      where: {
+        id: req.body.id
+      }
+    })
+    res.redirect('admin-inventory')
+})
+
+//admin deletes product
+app.post('/deleteproduct',(req,res)=>{
+  models.Product.destroy({
+      where: {
+        id : req.body.productId
+      }
+    })
+    res.redirect('admin-inventory')
+})
+
 //render mustache pages
 
 app.get('/', (req, res) => {
   res.redirect('/main')
+})
+
+app.get('/updatechoice', (req, res) => {
+  res.render('/updatechoice')
 })
 
 app.get('/main', (req, res) => {

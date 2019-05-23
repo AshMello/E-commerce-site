@@ -39,7 +39,49 @@
     </form>
 
 
+  <div>
+  <form action="/admin-viewall" method="POST">
+  <button type="submit">View All Current Inventory</button>
+  </form>
+  </div>
     <form class="logout" action="/admin/admin-logout" method="POST">
+
+  <div>
+    <form action="/admin-viewfiltered" method="POST">
+       <select name="selectCat" id="selectCat">
+          <option name= "category" value="Necklace">Necklaces</option>
+          <option name= "category" value="Bracelets">Bracelets</option>
+          <option name= "category" value="Rings">Rings</option>
+          <option name= "category" value="Earrings">Earrings</option>
+          <option name= "category" value="Belt Buckles">Belt Buckles</option>
+        </select>
+      <button type="submit">View</button>
+      </form>
+  <div>
+
+
+  <div class="inventoryDisplay">
+    {{#product}}
+      <ul>
+      <li><img src={{thumbnail}} /></li>
+      <li>{{name}}</li>
+      <li>{{category}}</li>
+      <li>{{style}}</li>
+      <li>{{description}}</li>
+      <li>{{price}}</li>
+      </ul>
+      <form action="/editproduct/{{id}}" method="GET">
+      <input type="hidden" name="id" value={{id}} />
+      <button type="submit">Edit</button>
+      </form>
+      <form action="/deleteproduct" method="POST">
+        <input type="hidden" name="productId" value={{id}} />
+        <button type="submit">Delete</button>
+      </form>
+    {{/product}}
+  </div>
+
+    <form class="logout" action="/admin-logout" method="GET">
       <button type="submit">Logout</button>
     </form>
 
