@@ -9,6 +9,7 @@ const path = require('path')
 const app = express()
 const adminCred = require('./routes/admin-credentials')
 const authenticate = require('./routes/admin-authenticate')
+const products = require('./routes/products')
 const PORT = 8080 //process.env.PORT
 const axios = require('axios')
 
@@ -25,6 +26,7 @@ app.use(session({
 
 app.all('/admin/*', authenticate)
 app.use('/', adminCred)
+app.use('/', products)
 
 
 app.use(express.static('public'))
@@ -59,9 +61,6 @@ app.post('/admin-inventory', (req, res) => {
   })
 })
 
-
-
-
 //render mustache pages
 
 app.get('/', (req, res) => {
@@ -70,10 +69,6 @@ app.get('/', (req, res) => {
 
 app.get('/main', (req, res) => {
   res.render('main')
-})
-
-app.get('/products', (req, res) => {
-  res.render('products')
 })
 
 app.get('/about', (req, res) => {

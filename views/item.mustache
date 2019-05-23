@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+
+    {{> menu}}
+
+    <ul>
+      {{#item}}
+      <li>
+        <img src={{thumbnail}} />
+        <h3>{{name}}</h3>
+        <h4>{{price}}</h4>
+        <p>{{description}}</p>
+        <form action="/add-to-cart" method="post">
+          <input type="hidden" value={{id}} name="id" />
+          <button type="submit">Add to Cart</button>
+        </form>
+      </li>
+      {{/item}}
+    </ul>
+
+    {{> footer}}
+  </body>
+</html>

@@ -9,6 +9,19 @@
 
     <h1>Products</h1>
 
+    <ul>
+      {{#product}}
+      <li>
+        <a href="/item/{{id}}/{{name}}">
+        <img src={{thumbnail}} />
+        <h4>{{name}}</h4>
+        <p>{{price}}</p>
+        <input type="hidden" name="itemId" value={{id}} />
+        </a>
+      </li>
+      {{/product}}
+    </ul>
+
     {{> footer}}
   </body>
 </html>
