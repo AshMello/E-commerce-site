@@ -9,6 +9,7 @@ const path = require('path')
 const app = express()
 const adminCred = require('./routes/admin-credentials')
 const authenticate = require('./routes/admin-authenticate')
+const products = require('./routes/products')
 const PORT = 8080 //process.env.PORT
 const axios = require('axios')
 const adminInventory = require('./routes/admin-inventory.js')
@@ -25,6 +26,8 @@ app.use(session({
 
 app.all('/admin/*', authenticate)
 app.use('/', adminCred)
+app.use('/', products)
+app.use('/', adminInventory)
 
 
 app.use(express.static('public'))
@@ -33,7 +36,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.engine('mustache', mustacheExpress(VIEWS_PATH + '/partials', '.mustache'))
 app.set('views', './views')
 app.set('view engine', 'mustache')
-app.use('/', adminInventory)
 
 
 //render mustache pages
@@ -42,16 +44,12 @@ app.get('/', (req, res) => {
   res.redirect('/main')
 })
 
-app.get('/updatechoice', (req, res) => {
-  res.render('/updatechoice')
+app.get('/admin/updatechoice', (req, res) => {
+  res.render('updatechoice')
 })
 
 app.get('/main', (req, res) => {
   res.render('main')
-})
-
-app.get('/products', (req, res) => {
-  res.render('products')
 })
 
 app.get('/about', (req, res) => {

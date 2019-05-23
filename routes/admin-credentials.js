@@ -36,6 +36,8 @@ router.use(bodyParser.urlencoded({ extended: false }))
           res.render("admin-login", {message: "Invalid username or password!"})
       }
     })
+  }).catch(function(err) {
+    res.render("admin-login", {message: "Invalid username or password!"})
   })
 })
 
@@ -58,7 +60,7 @@ router.post('/admin/admin-logout', function(req, res, next) {
       if(err) {
         return next(err);
       } else {
-        res.redirect('/admin-login');
+        res.redirect('/');
       }
     });
   }

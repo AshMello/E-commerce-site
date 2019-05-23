@@ -5,8 +5,9 @@ const router = express.Router()
 
 router.use(bodyParser.urlencoded({ extended: false }))
 
-//posting inventory to db
-router.post('/admin-inventory', (req, res) => {
+  //COPY
+
+  router.post('/admin/admin-inventory', (req, res) => {
     let thumbnail = req.body.image
     let name = req.body.name
     let category = req.body.selectType
@@ -25,19 +26,19 @@ router.post('/admin-inventory', (req, res) => {
     item.save().then((savedItem) => {
     }).catch(function(err) {
     }).then(function(){
-      res.redirect('/admin/admin-inventory')
+      res.render('admin-inventory')
     })
   })
   
   //View all from db
-  router.post('/admin-viewall', (req,res) => {
+  router.post('/admin/admin-viewall', (req,res) => {
     models.Product.findAll().then(product => {
       res.render('admin-inventory', {product: product})
     })
   })
   
   //View category from db
-  router.post('/admin-viewfiltered', (req,res) => {
+  router.post('/admin/admin-viewfiltered', (req,res) => {
     models.Product.findAll({
       where: {
         category: req.body.selectCat}
@@ -47,7 +48,7 @@ router.post('/admin-inventory', (req, res) => {
   })
   
   //admin selects product to update
-  router.get('/editproduct/:id', (req,res)=> {
+  router.get('/admin/editproduct/:id', (req,res)=> {
     models.Product.findOne({
         where: {
           id : req.params.id
@@ -58,7 +59,7 @@ router.post('/admin-inventory', (req, res) => {
     })
   
   //admin updates product
-  router.post('/updatechoice',(req,res)=>{
+  router.post('/admin/updatechoice',(req,res)=>{
     let thumbnail = req.body.image
     let name = req.body.name
     let category = req.body.selectType
@@ -82,7 +83,7 @@ router.post('/admin-inventory', (req, res) => {
   })
   
   //admin deletes product
-  router.post('/deleteproduct',(req,res)=>{
+  router.post('/admin/deleteproduct',(req,res)=>{
     models.Product.destroy({
         where: {
           id : req.body.productId
@@ -90,5 +91,6 @@ router.post('/admin-inventory', (req, res) => {
       })
       res.redirect('/admin/admin-inventory')
   })
+  
 
   module.exports = router
