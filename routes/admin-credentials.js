@@ -7,14 +7,6 @@ const sequelize = require('sequelize')
 const models = require('../models')
 const router = express.Router()
 
-let session = require('express-session')
-
-router.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true
-}))
-
 router.use(bodyParser.urlencoded({ extended: false }))
 
  // Logging into the app and checking the username and password to the database

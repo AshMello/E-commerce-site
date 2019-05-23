@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cart</title> 
+    <title>Cart</title>
   </head>
   <body>
   {{> menu}}
@@ -9,10 +9,10 @@
 
 <h2>CART</h2>
 <div>
-    {{#cartItems}}
-        <span>{{name}}</span>   
+    {{#product}}
+        <span>{{name}}</span>
         <img src="{{thumbnail}}"></span>
-     {{/cartItems}}
+     {{/product}}
 </div>
 <div class="cart-total">
         <span class="cart-total-title">Total</span>
