@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart</title>
+  </head>
+  <body>
+  {{> menu}}
+
+<div>
+    <h2>CART</h2>
+    {{#product}}
+    <div>
+        <span>ITEM</span>
+        <span>PRICE</span>
+        <span>QUANTITY</span>
+    </div>
+    {{/product}}
+    <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <span class="cart-total-price">$0</span>
+    </div>
+    <button>Proceed to Checkout</button>
+</div>
+
+    {{> footer}}
+  </body>
+  <script src="/scripts/shoppingcart.js"></script>
+  </html>
