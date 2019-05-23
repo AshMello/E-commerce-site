@@ -5,7 +5,6 @@
   </head>
   <body>
    {{> menu}}
-
 {{#product}}
 <form action="/admin/updatechoice" method="POST">
       <input type="text" name="name" value={{name}}></input>
@@ -13,11 +12,12 @@
             <label class="file-upload-container" for="file-upload">
                 Select an Image
                 <input id="file_upload" type="file"/>
-                <img src='' id="imgPreview"/>
-                <input type="hidden" id="imageUrlHidden" name="image"></input>
+                <img src='{{thumbnail}}' id="imgPreview"/>
+                <input type="hidden" id="imageUrlHidden" name='image'></input>
             </label>
             </div>
       <select name="selectType" id="selectType">
+        <option value="" disabled selected>Select Category</option>
         <option name= "category" value="Necklace">Necklaces</option>
         <option name= "category" value="Bracelets">Bracelets</option>
         <option name= "category" value="Rings">Rings</option>
@@ -25,6 +25,7 @@
         <option name= "category" value="Belt Buckles">Belt Buckles</option>
       </select>
       <select name="selectGenre" id="selectGenre">
+        <option value="" disabled selected>Select Style</option>
         <option name= "style" value="Vintage">Vintage</option>
         <option name= "style" value="Silver">Silver</option>
         <option name= "style" value="Beadwork">Beadwork</option>
@@ -34,7 +35,7 @@
       <input type="hidden" name="id" value={{id}} />
       <button type="submit">Save</button>
     </form>
-    {{/product}}
+{{/product}}
 
 
 

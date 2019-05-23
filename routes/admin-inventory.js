@@ -5,7 +5,13 @@ const router = express.Router()
 
 router.use(bodyParser.urlencoded({ extended: false }))
 
-  //COPY
+// render inventory page
+ router.get('/admin/admin-inventory', (req, res) => {
+   models.Product.findAll().then(function(product) {
+     res.render('admin-inventory', {product:product})
+   })
+
+ })
 
   router.post('/admin/admin-inventory', (req, res) => {
     let thumbnail = req.body.image
@@ -14,7 +20,7 @@ router.use(bodyParser.urlencoded({ extended: false }))
     let style = req.body.selectGenre
     let description = req.body.description
     let price = req.body.price
-  
+
     let item = models.Product.build({
       thumbnail: thumbnail,
       name: name,
@@ -25,18 +31,12 @@ router.use(bodyParser.urlencoded({ extended: false }))
     })
     item.save().then((savedItem) => {
     }).catch(function(err) {
-    }).then(function(){
-      res.render('admin-inventory')
+    }).then(() => {
+      models.Product.findAll().then(function(product) {
+        res.render('admin-inventory', {product:product})
+      })
     })
-  })
-  
-  //View all from db
-  router.post('/admin/admin-viewall', (req,res) => {
-    models.Product.findAll().then(product => {
-      res.render('admin-inventory', {product: product})
-    })
-  })
-  
+})
   //View category from db
   router.post('/admin/admin-viewfiltered', (req,res) => {
     models.Product.findAll({
@@ -46,27 +46,28 @@ router.use(bodyParser.urlencoded({ extended: false }))
       res.render('admin-inventory', {product: product})
     })
   })
-  
+
   //admin selects product to update
   router.get('/admin/editproduct/:id', (req,res)=> {
     models.Product.findOne({
         where: {
           id : req.params.id
         }
-      }).then((product) => {
+      }).then(product => {
         res.render('updatechoice', {product: product})
       })
     })
-  
+
   //admin updates product
   router.post('/admin/updatechoice',(req,res)=>{
     let thumbnail = req.body.image
+    console.log(req.body)
     let name = req.body.name
     let category = req.body.selectType
     let style = req.body.selectGenre
     let description = req.body.description
     let price = req.body.price
-  
+
     models.Product.update({
         thumbnail: thumbnail,
         name: name,
@@ -78,10 +79,13 @@ router.use(bodyParser.urlencoded({ extended: false }))
         where: {
           id: req.body.id
         }
+      }).then(() => {
+        models.Product.findAll().then(function(product) {
+          res.render('admin-inventory', {product:product})
+        })
       })
-      res.redirect('/admin/admin-inventory')
   })
-  
+
   //admin deletes product
   router.post('/admin/deleteproduct',(req,res)=>{
     models.Product.destroy({
@@ -89,8 +93,12 @@ router.use(bodyParser.urlencoded({ extended: false }))
           id : req.body.productId
         }
       })
-      res.redirect('/admin/admin-inventory')
+      .then(() => {
+        models.Product.findAll().then(function(product) {
+          res.render('admin-inventory', {product:product})
+        })
+      })
   })
-  
+
 
   module.exports = router
