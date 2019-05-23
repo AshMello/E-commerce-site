@@ -15,7 +15,6 @@ router.use(bodyParser.urlencoded({ extended: false }))
 
   router.post('/admin/admin-inventory', (req, res) => {
     let thumbnail = req.body.image
-    console.log(image)
     let name = req.body.name
     let category = req.body.selectType
     let style = req.body.selectGenre
@@ -32,11 +31,12 @@ router.use(bodyParser.urlencoded({ extended: false }))
     })
     item.save().then((savedItem) => {
     }).catch(function(err) {
-    }).then(function(){
-      res.render('admin-inventory')
+    }).then(() => {
+      models.Product.findAll().then(function(product) {
+        res.render('admin-inventory', {product:product})
+      })
     })
-  })
-
+})
   //View category from db
   router.post('/admin/admin-viewfiltered', (req,res) => {
     models.Product.findAll({
