@@ -9,6 +9,7 @@ const path = require('path')
 const app = express()
 const adminCred = require('./routes/admin-credentials')
 const authenticate = require('./routes/admin-authenticate')
+const checkCart = require('./routes/cartMiddleware')
 const products = require('./routes/products')
 const PORT = 8080 //process.env.PORT
 const axios = require('axios')
@@ -26,6 +27,7 @@ app.use(session({
 
 
 app.all('/admin/*', authenticate)
+app.all('/*', checkCart)
 app.use('/', adminCred)
 app.use('/', products)
 app.use('/', adminInventory)
@@ -67,8 +69,8 @@ app.get('/contact', (req, res) => {
 })
 
 app.get('/shoppingcart', (req, res) => {
-  
-  res.render('shoppingcart', {cartItems: cartItems})
+
+  res.render('shoppingcart', {product:product})
 })
 
 app.get('/add-to-cart', (req, res) => {

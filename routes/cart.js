@@ -5,18 +5,18 @@ const router = express.Router()
 
 router.use(bodyParser.urlencoded({ extended: false }))
 
-cartItems = [];
-
 router.post("/add-to-cart/:id", (req, res) => {
     let id = req.params.id
+    let cart = req.session.cart
 
     models.Product.findOne({
         where: {
             id: id
         }
         }).then(product => {
-        cartItems.push(product)
-        }).then(() => console.log(cartItems))
+        cart.push(product)
+        res.render('shoppingcart', {product:product})
     })
+  })
 
 module.exports = router
