@@ -9,11 +9,6 @@ const router = express.Router()
 
 router.use(bodyParser.urlencoded({ extended: false }))
 
-//rendering product page
-// router.get('/products', (req, res) => {
-//   res.render('products')
-// })
-
 //js for viewing all products
 router.get('/products', (req, res) => {
 

@@ -36,8 +36,6 @@ router.use(bodyParser.urlencoded({ extended: false }))
           res.render("admin-login", {message: "Invalid username or password!"})
       }
     })
-  }).catch(function(err) {
-    res.render("admin-login", {message: "Invalid username or password!"})
   })
 })
 
@@ -60,15 +58,10 @@ router.post('/admin/admin-logout', function(req, res, next) {
       if(err) {
         return next(err);
       } else {
-        res.redirect('/');
+        res.redirect('admin-login');
       }
     });
   }
- })
-
-// render inventory page
- router.get('/admin/admin-inventory', (req, res) => {
-   res.render('admin-inventory')
  })
 
 module.exports = router
