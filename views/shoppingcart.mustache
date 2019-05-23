@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cart</title>
+    <title>Cart</title> 
   </head>
   <body>
   {{> menu}}
 
+
+<h2>CART</h2>
 <div>
-    <h2>CART</h2>
-    {{#product}}
-    <div>
-        <span>Item</span>
-            {{name}}
-        <span>{{thumbnail}}</span>
-        <span>PRICE</span>
-        <span>QUANTITY</span>
-    </div>
-    <div class="cart-total">
-        <strong class="cart-total-title">Total</strong>
-        <span class="cart-total-price">$0</span>
-    </div>
-    <button>Proceed to Checkout</button>
-     {{/product}}
+    {{#cartItems}}
+        <span>{{name}}</span>   
+        <img src="{{thumbnail}}"></span>
+     {{/cartItems}}
 </div>
+<div class="cart-total">
+        <span class="cart-total-title">Total</span>
+        <span class="cart-total-price">$0</span>
+</div>
+    <button>Proceed to Checkout</button>
 
     {{> footer}}
   </body>

@@ -7,19 +7,21 @@
 
     {{> menu}}
 
+    <h2>Product Info</h2>
+
     <ul>
-      {{#item}}
+      {{#product}}
       <li>
         <img src={{thumbnail}} />
         <h3>{{name}}</h3>
         <h4>{{price}}</h4>
         <p>{{description}}</p>
-        <form action="/add-to-cart" method="post">
+        <form action="/add-to-cart/{{id}}" method="POST">
           <input type="hidden" value={{id}} name="id" />
           <button type="submit">Add to Cart</button>
         </form>
       </li>
-      {{/item}}
+      {{/product}} 
     </ul>
 
     {{> footer}}

@@ -51,8 +51,8 @@ router.get('/item/:id/:name', (req, res) => {
    where: {
      id: id
    }
- }).then(item => {
-   res.render('item', {item: item});
+ }).then(product => {
+   res.render('item', {product: product});
  })
 });
 
