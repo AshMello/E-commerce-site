@@ -14,6 +14,7 @@ const PORT = 8080 //process.env.PORT
 const axios = require('axios')
 const adminInventory = require('./routes/admin-inventory.js')
 const VIEWS_PATH = path.join(__dirname, '/views');
+const cart = require('./routes/cart.js')
 
 let session = require('express-session')
 
@@ -28,6 +29,7 @@ app.all('/admin/*', authenticate)
 app.use('/', adminCred)
 app.use('/', products)
 app.use('/', adminInventory)
+app.use('/', cart)
 
 
 app.use(express.static('public'))
@@ -65,7 +67,12 @@ app.get('/contact', (req, res) => {
 })
 
 app.get('/shoppingcart', (req, res) => {
-  res.render('shoppingcart')
+  
+  res.render('shoppingcart', {cartItems: cartItems})
+})
+
+app.get('/add-to-cart', (req, res) => {
+  res.render('add-to-cart')
 })
 
 app.listen(PORT, function() {
