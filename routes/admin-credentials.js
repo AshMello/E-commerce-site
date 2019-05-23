@@ -58,7 +58,7 @@ router.post('/admin/admin-logout', function(req, res, next) {
       if(err) {
         return next(err);
       } else {
-        res.redirect('/admin-login');
+        res.redirect('admin-login');
       }
     });
   }

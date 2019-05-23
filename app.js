@@ -9,6 +9,7 @@ const path = require('path')
 const app = express()
 const adminCred = require('./routes/admin-credentials')
 const authenticate = require('./routes/admin-authenticate')
+const products = require('./routes/products')
 const PORT = 8080 //process.env.PORT
 const axios = require('axios')
 
@@ -25,6 +26,7 @@ app.use(session({
 
 app.all('/admin/*', authenticate)
 app.use('/', adminCred)
+app.use('/', products)
 
 
 app.use(express.static('public'))
@@ -36,7 +38,7 @@ app.set('view engine', 'mustache')
 
 
 //posting inventory to db
-app.post('/admin-inventory', (req, res) => {
+app.post('/admin/admin-inventory', (req, res) => {
   let thumbnail = req.body.image
   let name = req.body.name
   let category = req.body.selectType
@@ -55,19 +57,19 @@ app.post('/admin-inventory', (req, res) => {
   item.save().then((savedItem) => {
   }).catch(function(err) {
   }).then(function(){
-    res.redirect('admin-inventory')
+    res.redirect('/admin/admin-inventory')
   })
 })
 
 //View all from db
-app.post('/admin-viewall', (req,res) => {
+app.post('/admin/admin-viewall', (req,res) => {
   models.Product.findAll().then(product => {
     res.render('admin-inventory', {product: product})
   })
 })
 
 //View category from db
-app.post('/admin-viewfiltered', (req,res) => {
+app.post('/admin/admin-viewfiltered', (req,res) => {
   models.Product.findAll({
     where: {
       category: req.body.selectCat}
@@ -77,7 +79,7 @@ app.post('/admin-viewfiltered', (req,res) => {
 })
 
 //admin selects product to update
-app.get('/editproduct/:id', (req,res)=> {
+app.get('/admin/editproduct/:id', (req,res)=> {
   models.Product.findOne({
       where: {
         id : req.params.id
@@ -88,7 +90,7 @@ app.get('/editproduct/:id', (req,res)=> {
   })
 
 //admin updates product
-app.post('/updatechoice',(req,res)=>{
+app.post('/admin/updatechoice',(req,res)=>{
   let thumbnail = req.body.image
   let name = req.body.name
   let category = req.body.selectType
@@ -108,20 +110,18 @@ app.post('/updatechoice',(req,res)=>{
         id: req.body.id
       }
     })
-    res.redirect('admin-inventory')
+    res.redirect('/admin/admin-inventory')
 })
 
 //admin deletes product
-app.post('/deleteproduct',(req,res)=>{
+app.post('/admin/deleteproduct',(req,res)=>{
   models.Product.destroy({
       where: {
         id : req.body.productId
       }
     })
-    res.redirect('admin-inventory')
+    res.redirect('/admin/admin-inventory')
 })
-
-
 
 //render mustache pages
 
@@ -129,16 +129,12 @@ app.get('/', (req, res) => {
   res.redirect('/main')
 })
 
-app.get('/updatechoice', (req, res) => {
-  res.render('/updatechoice')
+app.get('/admin/updatechoice', (req, res) => {
+  res.render('updatechoice')
 })
 
 app.get('/main', (req, res) => {
   res.render('main')
-})
-
-app.get('/products', (req, res) => {
-  res.render('products')
 })
 
 app.get('/about', (req, res) => {
