@@ -9,7 +9,7 @@
 
     <h1>Admin Manage Inventory</h1>
 
-    <form action="/admin-inventory" method="POST">
+    <form action="/admin/admin-inventory" method="POST">
 
       {{! <input type="text" name="thumbnail" placeholder="Thumbnail" /> }}
       <input type="text" name="name" placeholder="name" />
@@ -40,14 +40,14 @@
 
 
   <div>
-  <form action="/admin-viewall" method="POST">
+  <form action="/admin/admin-viewall" method="POST">
   <button type="submit">View All Current Inventory</button>
   </form>
   </div>
-    <form class="logout" action="/admin/admin-logout" method="POST">
+    <form class="logout" action="/admin/admin-logout" method="POST"></form>
 
   <div>
-    <form action="/admin-viewfiltered" method="POST">
+    <form action="/admin/admin-viewfiltered" method="POST">
        <select name="selectCat" id="selectCat">
           <option name= "category" value="Necklace">Necklaces</option>
           <option name= "category" value="Bracelets">Bracelets</option>
@@ -56,7 +56,7 @@
           <option name= "category" value="Belt Buckles">Belt Buckles</option>
         </select>
       <button type="submit">View</button>
-      </form>
+    </form>
   <div>
 
 
@@ -70,11 +70,11 @@
       <li>{{description}}</li>
       <li>{{price}}</li>
       </ul>
-      <form action="/editproduct/{{id}}" method="GET">
+      <form action="/admin/editproduct/{{id}}" method="GET">
       <input type="hidden" name="id" value={{id}} />
       <button type="submit">Edit</button>
       </form>
-      <form action="/deleteproduct" method="POST">
+      <form action="/admin/deleteproduct" method="POST">
         <input type="hidden" name="productId" value={{id}} />
         <button type="submit">Delete</button>
       </form>
