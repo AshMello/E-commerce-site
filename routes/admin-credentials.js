@@ -36,6 +36,8 @@ router.use(bodyParser.urlencoded({ extended: false }))
           res.render("admin-login", {message: "Invalid username or password!"})
       }
     })
+  }).catch(function(err) {
+    res.render("admin-login", {message: "Invalid username or password!"})
   })
 })
 
