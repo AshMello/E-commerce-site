@@ -70,7 +70,7 @@ app.get('/contact', (req, res) => {
 
 app.get('/shoppingcart', (req, res) => {
 
-  res.render('shoppingcart', {product:product})
+  res.render('shoppingcart', {cartItems: req.session.cart})
 })
 
 app.get('/add-to-cart', (req, res) => {
