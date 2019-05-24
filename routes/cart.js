@@ -15,7 +15,7 @@ router.post("/add-to-cart/:id", (req, res) => {
         }
         }).then(product => {
         cart.push(product)
-        res.render('shoppingcart', {product:product})
+        res.redirect('/shoppingcart')
     })
   })
 
