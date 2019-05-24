@@ -19,4 +19,13 @@ router.post("/add-to-cart/:id", (req, res) => {
     })
   })
 
+// router.get('/shoppingcart', (req, res) => {
+//   if (req.session.cart) {
+//     let cartItems = req.session.cart.length;
+//   } else {
+//       req.session.cart = [];
+//   }
+//     res.render('shoppingcart', {product:product, cartItems:cartItems})
+//   })
+
 module.exports = router
