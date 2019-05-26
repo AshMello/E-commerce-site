@@ -16,6 +16,7 @@ const axios = require('axios')
 const adminInventory = require('./routes/admin-inventory.js')
 const VIEWS_PATH = path.join(__dirname, '/views');
 const cart = require('./routes/cart.js')
+const checkout = require('./routes/checkout.js')
 
 let session = require('express-session')
 
@@ -32,6 +33,7 @@ app.use('/', adminCred)
 app.use('/', products)
 app.use('/', adminInventory)
 app.use('/', cart)
+app.use('/', checkout)
 
 
 app.use(express.static('public'))
@@ -75,6 +77,10 @@ app.get('/shoppingcart', (req, res) => {
 
 app.get('/add-to-cart', (req, res) => {
   res.render('add-to-cart')
+})
+
+app.get('/checkout', (req, res) => {
+  res.render('checkout')
 })
 
 app.listen(PORT, function() {
