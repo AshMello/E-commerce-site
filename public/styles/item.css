@@ -1,0 +1,21 @@
+
+.container {
+  margin: 100px 325px;
+}
+
+.title {
+  text-align: center;
+}
+
+.itemList {
+  list-style: none;
+  align-items: center;
+
+}
+
+.itemImg {
+  width: 500px;
+  height: 500px;
+  float: left;
+  margin-right: 20px;
+}

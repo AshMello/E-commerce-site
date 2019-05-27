@@ -36,14 +36,18 @@ router.get('/shoppingcart', (req, res) => {
   res.render('shoppingcart', {cartItems: req.session.cart, subtotal: subtotal, totalItems: req.session.cart.length})
 })
 
-router.post('/delete-item', (req, res) => {
+router.post('/delete-item/:id', (req, res) => {
   let deleteId = req.body.id
+  let cart = req.session.cart
+  console.log(req.session.cart)
+  let subtotal = cartSubtotal(req.session.cart)
 
-  req.session.cart = req.session.cart.filter(function(item) {
+
+  cart = cart.filter(function(item) {
     return item.id != deleteId
   })
 
-  res.render('shoppingcart')
+  res.render('shoppingcart', {cartItems: req.session.cart, subtotal: subtotal, totalItems: cart.length})
 })
 
 module.exports = router

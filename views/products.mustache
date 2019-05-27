@@ -2,25 +2,27 @@
 <html>
   <head>
     <title></title>
+    <link rel="stylesheet" href="/styles/products.css">
   </head>
   <body>
 
     {{> menu}}
+    <div class="container">
+    <h1 class="title">Products</h1>
 
-    <h1>Products</h1>
-
-    <ul>
+    <ul class="productList">
       {{#product}}
       <li>
-        <a href="/item/{{id}}/{{name}}">
-        <img src={{thumbnail}} />
-        <h4>{{name}}</h4>
-        <p>{{price}}</p>
+        <a class="productLink" href="/item/{{id}}/{{name}}">
+        <img class="productImg" src={{thumbnail}} width="375px" height="auto"/>
+        <h3 class="productName">{{name}}</h3>
+        <p class="productPrice">${{price}}</p>
         <input type="hidden" name="itemId" value={{id}} />
         </a>
       </li>
       {{/product}}
     </ul>
+  </div>
 
     {{> footer}}
   </body>
