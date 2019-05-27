@@ -8,15 +8,24 @@
 
 
 <h2>CART</h2>
+<p>Total Items: {{totalItems}} </p>
 <div>
     {{#cartItems}}
         <span>{{name}}</span>
         <img src="{{thumbnail}}"></span>
+        <form action="/delete-item" method="POST">
+          <input type="hidden" name="id" value={{id}} />
+          <button type="submit">Remove</button>
+        </form>
      {{/cartItems}}
+     {{^cartItems}}
+     <p>Your cart is currently empty. <a href="/">Click here</a> to continue shopping.</p>
+     {{/cartItems}}
+
 </div>
 <div class="cart-total">
         <span class="cart-total-title">Total</span>
-        <span class="cart-total-price">$0</span>
+        <span class="cart-total-price">${{subtotal}}</span>
 </div>
     <button>Proceed to Checkout</button>
 

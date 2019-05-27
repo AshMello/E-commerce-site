@@ -13,7 +13,7 @@ router.use(bodyParser.urlencoded({ extended: false }))
 router.get('/products', (req, res) => {
 
   models.Product.findAll().then(function(product) {
-    res.render('products', {product:product})
+    res.render('products', {product:product, totalItems: req.session.cart.length})
   })
 
 })
@@ -27,7 +27,7 @@ router.get('/products/category/:category', (req, res) => {
    where: {
      category: category}
  }).then(product => {
-   res.render('products', {product: product});
+   res.render('products', {product: product, totalItems: req.session.cart.length});
  })
 });
 
@@ -40,7 +40,7 @@ router.get('/products/style/:style', (req, res) => {
    where: {
      style: style}
   }).then(product => {
-   res.render('products', {product: product});
+   res.render('products', {product: product, totalItems: req.session.cart.length});
   })
 });
 
@@ -52,7 +52,7 @@ router.get('/item/:id/:name', (req, res) => {
      id: id
    }
  }).then(product => {
-   res.render('item', {product: product});
+   res.render('item', {product: product, totalItems: req.session.cart.length});
  })
 });
 

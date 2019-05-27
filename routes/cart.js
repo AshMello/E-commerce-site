@@ -5,6 +5,17 @@ const router = express.Router()
 
 router.use(bodyParser.urlencoded({ extended: false }))
 
+//functions for calculating number of cart items and cost subtotal
+
+function cartSubtotal(cart) {
+  let subtotal = 0
+  if (cart) {
+    cart.forEach(function(item) {
+      subtotal += item.price
+    })
+  } return subtotal
+}
+
 router.post("/add-to-cart/:id", (req, res) => {
     let id = req.params.id
     let cart = req.session.cart
@@ -19,13 +30,20 @@ router.post("/add-to-cart/:id", (req, res) => {
     })
   })
 
-// router.get('/shoppingcart', (req, res) => {
-//   if (req.session.cart) {
-//     let cartItems = req.session.cart.length;
-//   } else {
-//       req.session.cart = [];
-//   }
-//     res.render('shoppingcart', {product:product, cartItems:cartItems})
-//   })
+router.get('/shoppingcart', (req, res) => {
+  let subtotal = cartSubtotal(req.session.cart)
+
+  res.render('shoppingcart', {cartItems: req.session.cart, subtotal: subtotal, totalItems: req.session.cart.length})
+})
+
+router.post('/delete-item', (req, res) => {
+  let deleteId = req.body.id
+
+  req.session.cart = req.session.cart.filter(function(item) {
+    return item.id != deleteId
+  })
+
+  res.render('shoppingcart')
+})
 
 module.exports = router
