@@ -1,0 +1,39 @@
+
+.container {
+  margin: auto 100px;
+}
+
+.title {
+  text-align: center;
+}
+
+.productList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productList li {
+  margin: 25px;
+}
+
+.productImg {
+  width: 400px;
+  height: 400px;
+  /* text-align: center; */
+}
+
+.productName {
+  text-align: center;
+  color: black;
+}
+
+.productPrice {
+  text-align: center;
+  color: black;
+}
+
+.productLink {
+  text-decoration: none;
+}

@@ -13,7 +13,7 @@
     {{#cartItems}}
         <span>{{name}}</span>
         <img src="{{thumbnail}}"></span>
-        <form action="/delete-item" method="POST">
+        <form action="/delete-item/{{id}}" method="POST">
           <input type="hidden" name="id" value={{id}} />
           <button type="submit">Remove</button>
         </form>

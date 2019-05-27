@@ -2,27 +2,29 @@
 <html>
   <head>
     <title></title>
+    <link rel="stylesheet" href="/styles/item.css">
   </head>
   <body>
 
     {{> menu}}
 
-    <h2>Product Info</h2>
-
-    <ul>
+    <!-- <h2 class="title">Product Info</h2> -->
+    <div class="container">
+    <ul class="itemList">
       {{#product}}
       <li>
-        <img src={{thumbnail}} />
-        <h3>{{name}}</h3>
-        <h4>{{price}}</h4>
-        <p>{{description}}</p>
-        <form action="/add-to-cart/{{id}}" method="POST">
+        <img class="itemImg" src={{thumbnail}} width="500px" height="auto"/>
+        <h1 class="itemName">{{name}}</h1>
+        <h2 class="itemPrice">${{price}}</h2>
+        <h3 class="itemDes">{{description}}</h3>
+        <form class="cartBtn" action="/add-to-cart/{{id}}" method="POST">
           <input type="hidden" value={{id}} name="id" />
           <button type="submit">Add to Cart</button>
         </form>
       </li>
-      {{/product}} 
+      {{/product}}
     </ul>
+  </div>
 
     {{> footer}}
   </body>
