@@ -55,28 +55,19 @@ app.get('/admin/updatechoice', (req, res) => {
 })
 
 app.get('/main', (req, res) => {
-  res.render('main')
+  res.render('main', {totalItems: req.session.cart.length})
 })
 
 app.get('/about', (req, res) => {
-  res.render('about')
+  res.render('about', {totalItems: req.session.cart.length})
 })
 
 app.get('/reviews', (req, res) => {
-  res.render('reviews')
+  res.render('reviews', {totalItems: req.session.cart.length})
 })
 
 app.get('/contact', (req, res) => {
-  res.render('contact')
-})
-
-app.get('/shoppingcart', (req, res) => {
-
-  res.render('shoppingcart', {cartItems: req.session.cart})
-})
-
-app.get('/add-to-cart', (req, res) => {
-  res.render('add-to-cart')
+  res.render('contact', {totalItems: req.session.cart.length})
 })
 
 app.get('/checkout', (req, res) => {

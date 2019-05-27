@@ -10,7 +10,6 @@ router.use(bodyParser.urlencoded({ extended: false }))
    models.Product.findAll().then(function(product) {
      res.render('admin-inventory', {product:product})
    })
-
  })
 
   router.post('/admin/admin-inventory', (req, res) => {
