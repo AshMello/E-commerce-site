@@ -1,0 +1,17 @@
+.container {
+  margin: auto 250px;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.aboutImg {
+  float: left;
+  margin-right: 20px;
+}
+
+p {
+  font-size: 14pt;
+}
