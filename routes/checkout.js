@@ -21,23 +21,38 @@ function cartDescription(itemNames) {
 
 
 router.post('/charge', (req, res) => {
+let name = req.body.name;
+let email = req.body.email;
+let city = req.body.city;
+let line1 = req.body.line1;
+let line2 = req.body.line2;
+let state = req.body.state;
+let zipcode = req.body.postal_code;
 let token = req.body.stripeToken;
-console.log('cartttttttttttttt', req.session.cart)
 let cart = req.session.cart
 let productsIds = []
 for( i=0; i<cart.length; i++) {
   productsIds.push(cart[i].id)
 }
-// let productsIds = cart.map((item) => item.id)
- // Using Express
 (async () => {
   const charge = await stripe.charges.create({
     amount: req.session.subtotal ? req.session.subtotal * 100 : 0,
     currency: 'usd',
     description: cartDescription(req.session.cart),
-    source: token
-    // receipt_email: '',
-  });
+    source: token,
+    receipt_email: email,
+    shipping: {
+      name: name,
+      address: 
+      {
+        city: city,
+        line1: line1,
+        line2: line2,
+        postal_code: zipcode,
+        state: state,
+      }
+      }
+    });
 })()
 .then(() => {
   req.session.destroy()
@@ -57,43 +72,40 @@ for( i=0; i<cart.length; i++) {
 .then(() => res.redirect('/confirmation'))})
 
 
-router.post('/customerInfo', (req,res) => {
-  let name = req.body.name;
-  let email = req.body.email;
-  let city = req.body.city;
-  let line1 = req.body.line1;
-  let line2 = req.body.line2;
-  let state = req.body.state;
-  let zipcode = req.body.postal_code;
-  let userId = req.session.userId
-  console.log(req.body.name)
+// router.post('/customerInfo', (req,res) => {
+//   let name = req.body.name;
+//   let email = req.body.email;
+//   let city = req.body.city;
+//   let line1 = req.body.line1;
+//   let line2 = req.body.line2;
+//   let state = req.body.state;
+//   let zipcode = req.body.postal_code;
 
-  stripe.customers.create({
-    description: 'Customer for jenny.rosen@example.com',
-    email: email,
-    name: name,
-    shipping: {
-      name: name,
-      address: 
-      {
-        city: city,
-        line1: line1,
-        line2: line2,
-        postal_code: zipcode,
-        state: state
-      }
-    }
-    }, function(err, customer) {
-    // asynchronously called
-    }).then(() => {
-      res.redirect('/checkout')
-    })
+//   stripe.customers.create({
+//     email: email,
+//     name: name,
+//     shipping: {
+//       name: name,
+//       address: 
+//       {
+//         city: city,
+//         line1: line1,
+//         line2: line2,
+//         postal_code: zipcode,
+//         state: state
+//       }
+//     }
+//     }, function(err, customer) {
+//     // asynchronously called
+//     }).then(() => {
+//       res.redirect('/checkout')
+//     })
 
-  })
+//   })
 
-  router.get('/customerInfo', (req, res) => {
-    res.render('customerInfo')
-  })
+//   router.get('/customerInfo', (req, res) => {
+//     res.render('customerInfo')
+//   })
 
   router.get('/confirmation', (req, res) => {
     res.render('confirmation')
