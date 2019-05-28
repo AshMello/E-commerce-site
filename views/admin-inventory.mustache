@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link rel="stylesheet" href="/styles/admin.css">
     <title></title>
   </head>
   <body>
@@ -47,7 +48,7 @@
       <h3>Filter Inventory by Category:</h3>
        <select name="selectCat" id="selectCat">
           <option value="" disabled selected>Select Category</option>
-          <option name= "category" value="Necklace">Necklaces</option>
+          <option name= "category" value="Necklaces">Necklaces</option>
           <option name= "category" value="BoloTies">Bolo Ties</option>
           <option name= "category" value="Bracelets">Bracelets</option>
           <option name= "category" value="Rings">Rings</option>
@@ -61,14 +62,15 @@
 
   <div class="inventoryDisplay">
       {{#product}}
+      <div class="productList">
       <ul>
-      <li><img src={{thumbnail}} /></li>
-      <li>{{name}}</li>
-      <li>{{category}}</li>
-      <li>{{style}}</li>
-      <li>{{description}}</li>
-      <li>{{price}}</li>
-      </ul>
+      <li class="inventItem"><img id="image" src={{thumbnail}} /></li>
+      <li class="inventItem">{{name}}</li>
+      <li class="inventItem">{{category}}</li>
+      <li class="inventItem">{{style}}</li>
+      <li class="inventItem">{{description}}</li>
+      <li class="inventItem">{{price}}</li>
+      <div id="btn"
       <form action="/admin/editproduct/{{id}}" method="GET">
       <input type="hidden" name="id" value={{id}} />
       <button type="submit">Edit</button>
@@ -77,6 +79,10 @@
         <input type="hidden" name="productId" value={{id}} />
         <button type="submit">Delete</button>
       </form>
+      </div>
+      </ul>
+        </div>
+        <br>
       {{/product}}
   </div>
 
