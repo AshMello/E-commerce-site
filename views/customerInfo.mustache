@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title></title>
+    <link rel="stylesheet" href="/styles/products.css">
+  </head>
+  <body>
+
+    {{> menu}}
+   <form action="/customerInfo" method="POST">
+    <input type="text" name="name" placeholder="name"></input>
+    <input type="text" name="email" placeholder="email"></input>
+    <input type="text" name="line1" placeholder="(Street address/PO Box/Company name)"></input>
+    <input type="text" name="line2" placeholder="(Apartment/Suite/Unit/Building)"></input>
+    <input type="text" name="city" placeholder="city"></input>
+    <input type="text" name="state" placeholder="state"></input>
+    <input type="text" name="postal_code" placeholder="zipcode"></input>
+    <button type="submit">Submit</button>
+    </form>
+
+    {{> footer}}
+  </body>
+</html>

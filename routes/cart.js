@@ -32,6 +32,7 @@ router.post("/add-to-cart/:id", (req, res) => {
 
 router.get('/shoppingcart', (req, res) => {
   let subtotal = cartSubtotal(req.session.cart)
+  req.session.subtotal = subtotal
 
   res.render('shoppingcart', {cartItems: req.session.cart, subtotal: subtotal, totalItems: req.session.cart.length})
 })
