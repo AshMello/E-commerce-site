@@ -22,18 +22,40 @@ function cartDescription(itemNames) {
 
 router.post('/charge', (req, res) => {
 let token = req.body.stripeToken;
+console.log('cartttttttttttttt', req.session.cart)
+let cart = req.session.cart
+let productsIds = []
+for( i=0; i<cart.length; i++) {
+  productsIds.push(cart[i].id)
+}
+// let productsIds = cart.map((item) => item.id)
  // Using Express
 (async () => {
   const charge = await stripe.charges.create({
     amount: req.session.subtotal ? req.session.subtotal * 100 : 0,
     currency: 'usd',
     description: cartDescription(req.session.cart),
-    source: token,
-    receipt_email: '',
+    source: token
+    // receipt_email: '',
   });
-})();
-  res.redirect('/products')
+})()
+.then(() => {
+  req.session.destroy()
+  console.log(productsIds)
+  models.Product.update(
+    {
+    isAvailable: false 
+    },
+    {
+    where: {
+      id: productsIds
+    }}
+  )
+  .then(idk => console.log(idk))
+  .catch(error => console.log(error))
 })
+.then(() => res.redirect('/confirmation'))})
+
 
 router.post('/customerInfo', (req,res) => {
   let name = req.body.name;
@@ -48,7 +70,6 @@ router.post('/customerInfo', (req,res) => {
 
   stripe.customers.create({
     description: 'Customer for jenny.rosen@example.com',
-    source: "tok_mastercard",
     email: email,
     name: name,
     shipping: {
@@ -64,15 +85,18 @@ router.post('/customerInfo', (req,res) => {
     }
     }, function(err, customer) {
     // asynchronously called
-    }).then(user => {
-      userId.push(user.id)
-      console.log(userId)
+    }).then(() => {
+      res.redirect('/checkout')
     })
-     res.redirect('/checkout')
-    })
+
+  })
 
   router.get('/customerInfo', (req, res) => {
     res.render('customerInfo')
+  })
+
+  router.get('/confirmation', (req, res) => {
+    res.render('confirmation')
   })
 
 

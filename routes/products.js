@@ -12,7 +12,11 @@ router.use(bodyParser.urlencoded({ extended: false }))
 //js for viewing all products
 router.get('/products', (req, res) => {
 
-  models.Product.findAll().then(function(product) {
+  models.Product.findAll(
+    {where: {
+      isAvailable: true
+     }}
+  ).then(function(product) {
     res.render('products', {product:product, totalItems: req.session.cart.length})
   })
 
@@ -25,7 +29,9 @@ router.get('/products/category/:category', (req, res) => {
 
   models.Product.findAll({
    where: {
-     category: category}
+     category: category,
+     isAvailable: true
+    }
  }).then(product => {
    res.render('products', {product: product, category: category, totalItems: req.session.cart.length});
  })
@@ -38,7 +44,9 @@ router.get('/products/style/:style', (req, res) => {
 
   models.Product.findAll({
    where: {
-     style: style}
+     style: style,
+     isAvailable: true
+     }
   }).then(product => {
    res.render('products', {product: product, style: style, totalItems: req.session.cart.length});
   })
@@ -49,7 +57,8 @@ router.get('/item/:id/:name', (req, res) => {
 
   models.Product.findAll({
    where: {
-     id: id
+     id: id,
+     isAvailable: true
    }
  }).then(product => {
    res.render('item', {product: product, totalItems: req.session.cart.length});
