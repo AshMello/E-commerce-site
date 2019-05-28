@@ -27,7 +27,7 @@ router.get('/products/category/:category', (req, res) => {
    where: {
      category: category}
  }).then(product => {
-   res.render('products', {product: product, totalItems: req.session.cart.length});
+   res.render('products', {product: product, category: category, totalItems: req.session.cart.length});
  })
 });
 
@@ -40,7 +40,7 @@ router.get('/products/style/:style', (req, res) => {
    where: {
      style: style}
   }).then(product => {
-   res.render('products', {product: product, totalItems: req.session.cart.length});
+   res.render('products', {product: product, style: style, totalItems: req.session.cart.length});
   })
 });
 

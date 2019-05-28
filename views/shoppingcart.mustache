@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>Cart</title>
+    <link rel="stylesheet" href="/styles/cart.css">
   </head>
   <body>
   {{> menu}}
 
-
-<h2>CART</h2>
-<p>Total Items: {{totalItems}} </p>
-<div>
+<div class="container">
+<h1 class="title">Cart</h1>
+{{^cartItems}}
+<h3 class="emptyMessage">Your cart is currently empty. <a href="/">Click here</a> to continue shopping.</h3>
+{{/cartItems}}
+<div id="cartTable">
+  <table>
+    <thead>
+      <tr>
+        <th class="head column" scope="col"></th>
+        <th class="head column" scope="col">Name</th>
+        <th class="head column" scope="col">Price</th>
+        <th class="head column" scope="col">Remove</th>
+      </tr>
+    </thead>
     {{#cartItems}}
-        <span>{{name}}</span>
-        <img src="{{thumbnail}}"></span>
-        <form action="/delete-item/{{id}}" method="POST">
+    <tbody id="cartItem">
+      <tr>
+        <td class="column"><img class="thumbnail" src="{{thumbnail}}"></span></td>
+        <td class="column"><h4>{{name}}</h4></td>
+        <td class="column"><p>${{price}}</p></td>
+        <td class="column"><form action="/delete-item/{{id}}" method="POST">
           <input type="hidden" name="id" value={{id}} />
           <button type="submit">Remove</button>
-        </form>
-     {{/cartItems}}
-     {{^cartItems}}
-     <p>Your cart is currently empty. <a href="/">Click here</a> to continue shopping.</p>
-     {{/cartItems}}
-
+        </form></td>
+      </tr>
+      {{/cartItems}}
+      <tr>
+        <td class="head column"><h4>Subtotal</h4></td>
+        <td class="head column"></td>
+        <td class="head column"><h4>${{subtotal}}</h4></td>
+        <td class="head column"></td>
+      </tr>
+      <tr>
+        <td class="column"></td>
+        <td class="column"></td>
+        <td class="column"></td>
+        <td class="column"><a href="/checkout"><button>Checkout</button></a></td>
+      </tr>
+      </tbody>
+</table>
 </div>
-<div class="cart-total">
-        <span class="cart-total-title">Total</span>
+
+<!-- <div class="cart-total">
+        <span class="cart-total-title">Subtotal</span>
         <span class="cart-total-price">${{subtotal}}</span>
 </div>
-  <a href="/checkout"><button>Proceed to Checkout</button></a>
-
+  <a href="/checkout"><button>Proceed to Checkout</button></a> -->
+</div>
     {{> footer}}
+
   </body>
-  <script>
-  </script>
   </html>
