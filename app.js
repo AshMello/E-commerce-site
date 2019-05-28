@@ -62,8 +62,8 @@ app.get('/about', (req, res) => {
   res.render('about', {totalItems: req.session.cart.length})
 })
 
-app.get('/reviews', (req, res) => {
-  res.render('reviews', {totalItems: req.session.cart.length})
+app.get('/press', (req, res) => {
+  res.render('press', {totalItems: req.session.cart.length})
 })
 
 app.get('/contact', (req, res) => {

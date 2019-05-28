@@ -38,6 +38,7 @@ router.use(bodyParser.urlencoded({ extended: false }))
 })
   //View category from db
   router.post('/admin/admin-viewfiltered', (req,res) => {
+    console.log(req.body.selectCat)
     models.Product.findAll({
       where: {
         category: req.body.selectCat}

@@ -21,7 +21,7 @@
 .productImg {
   width: 400px;
   height: 370px;
-  /* text-align: center; */
+  text-align: center;
 }
 
 .productName {
