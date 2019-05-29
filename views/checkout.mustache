@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="/styles/checkout.css">
   </head>
   <body>
-    {{> menu}}
 
     <form action="/charge" method="post" id="payment-form">
     <div class="container">
@@ -58,7 +57,7 @@
 
 
 
-{{> footer}}
+<script src="https://js.stripe.com/v3/"></script>
 
 <script src='/scripts/checkout.js'></script>
 </body>
