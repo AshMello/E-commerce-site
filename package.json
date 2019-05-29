@@ -13,10 +13,12 @@
     "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-session": "^1.16.1",
     "mustache-express": "^1.2.8",
     "mysql2": "^1.6.5",
+    "nodemailer": "^6.2.1",
     "pg": "^7.11.0",
     "sequelize": "^5.8.6",
     "stripe": "^7.1.0"
