@@ -1,5 +1,52 @@
 <div class="menu">
-  <div>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+      <a class="navbar-brand" href="/">
+        <!-- <img src="images/pwplogo.jpg" width="70" height="auto" class="d-inline-block align-center" alt=""> -->
+        Paige Peake Wright Jewelry
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Shop
+       </a>
+       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+         <a class="dropdown-item disabled" href="#">By Category</a>
+         <a class="dropdown-item" href="/products">Shop All</a>
+         <a class="dropdown-item" href="/products/category/Necklaces">Necklaces</a>
+         <a class="dropdown-item" href="/products/category/BoloTies">Bolo Ties</a>
+         <a class="dropdown-item" href="/products/category/Bracelets">Bracelets</a>
+         <a class="dropdown-item" href="/products/category/Rings">Rings</a>
+         <a class="dropdown-item" href="/products/category/BeltBuckles">Belt Buckles</a>
+         <a class="dropdown-item disabled" href="#">By Style</a>
+         <a class="dropdown-item" href="/products/style/Vintage">Vintage</a>
+         <a class="dropdown-item" href="/products/style/Silver">Silver</a>
+         <a class="dropdown-item" href="/products/style/Beadwork">Beaded</a>
+       </div>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="/about">About the Artist</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+    </ul>
+    <span class="nav-item">
+      <a class="nav-link" href="/shoppingcart">Cart {{totalItems}}</a>
+    </span>
+  </div>
+</nav>
+</header>
+</div>
+
+  <!-- <div>
     <div>
       <a href="/products">Shop All</a>
       <a href="/products/category/Necklaces">Necklaces</a>
@@ -18,4 +65,5 @@
   <a href="/press">Press</a>
   <a href="/contact">Contact</a>
   <a href="/shoppingcart">Cart {{totalItems}}</a>
-</div>
+</header>
+</div> -->
