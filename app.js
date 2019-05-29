@@ -74,6 +74,10 @@ app.get('/checkout', (req, res) => {
   res.render('checkout')
 })
 
+app.get('/contacts', (req, res) => {
+  res.render('contacts')
+})
+
 app.listen(PORT, function() {
   console.log("Server is running...")
 })
