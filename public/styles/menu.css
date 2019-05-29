@@ -1,0 +1,21 @@
+html {
+font-family: 'Charm', cursive;
+font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-brand {
+  font-family: 'Charm', cursive;
+  font-size: 24pt;
+}
+
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link dropdown-toggle {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.dropdown-item {
+  font-family: 'Montserrat', sans-serif;
+}
