@@ -19,22 +19,6 @@ function cartDescription(itemNames) {
   return description
 }
 
-
-router.post('/charge', (req, res) => {
-let token = req.body.stripeToken;
- // Using Express
-(async () => {
-  const charge = await stripe.charges.create({
-    amount: req.session.subtotal ? req.session.subtotal * 100 : 0,
-    currency: 'usd',
-    description: cartDescription(req.session.cart),
-    source: token,
-    receipt_email: '',
-  });
-})();
-  res.redirect('/products')
-})
-
 router.post('/customerInfo', (req,res) => {
   let name = req.body.name;
   let email = req.body.email;
@@ -43,17 +27,14 @@ router.post('/customerInfo', (req,res) => {
   let line2 = req.body.line2;
   let state = req.body.state;
   let zipcode = req.body.postal_code;
-  let userId = req.session.userId
   console.log(req.body.name)
 
   stripe.customers.create({
-    description: 'Customer for jenny.rosen@example.com',
-    source: "tok_mastercard",
     email: email,
     name: name,
     shipping: {
       name: name,
-      address: 
+      address:
       {
         city: city,
         line1: line1,
@@ -64,11 +45,27 @@ router.post('/customerInfo', (req,res) => {
     }
     }, function(err, customer) {
     // asynchronously called
-    }).then(user => {
-      userId.push(user.id)
-      console.log(userId)
-    })
-     res.redirect('/checkout')
+    req.session.customerid = customer.id
+    req.session.customeremail = customer.email
+    console.log(req.session.customerid)
+    res.redirect('/checkout')
+  })
+  })
+
+
+  router.post('/charge', (req, res) => {
+    let token = req.body.stripeToken;
+     // Using Express
+    (async () => {
+      const charge = await stripe.charges.create({
+        amount: req.session.total ? req.session.total * 100 : 0,
+        currency: 'usd',
+        description: cartDescription(req.session.cart),
+        source: token,
+        receipt_email: req.session.email,
+      });
+    })();
+      res.redirect('/products')
     })
 
   router.get('/customerInfo', (req, res) => {
@@ -77,4 +74,3 @@ router.post('/customerInfo', (req,res) => {
 
 
 module.exports = router;
-
