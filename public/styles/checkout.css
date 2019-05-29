@@ -1,0 +1,38 @@
+input[type=text], [type=email] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    margin-left: 25%;
+  }
+
+input[type=text]:focus, [type=email]:focus {
+    border: 3px solid #555;
+  }
+
+label, #cardLabel {
+    text-align: center;
+}
+
+.inputItem {
+      display: flex;
+      flex-direction: column;
+  }
+
+.form-row {
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+}
+
+.addressItems {
+    display: flex;
+    margin-left: 25%;
+}
+
+.addressItems input {
+    width: 100%;
+    margin: 0 auto;
+}
