@@ -1,6 +1,6 @@
 
 .container {
-  margin: auto 100px;
+  /* margin: auto 100px; */
 }
 
 .title {
@@ -19,8 +19,8 @@
 }
 
 .productImg {
-  width: 400px;
-  height: 370px;
+  width: 360px;
+  height: 330px;
   text-align: center;
 }
 

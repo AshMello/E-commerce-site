@@ -43,7 +43,7 @@ for( i=0; i<cart.length; i++) {
     receipt_email: email,
     shipping: {
       name: name,
-      address: 
+      address:
       {
         city: city,
         line1: line1,
@@ -59,7 +59,7 @@ for( i=0; i<cart.length; i++) {
   console.log(productsIds)
   models.Product.update(
     {
-    isAvailable: false 
+    isAvailable: false
     },
     {
     where: {
@@ -86,7 +86,7 @@ for( i=0; i<cart.length; i++) {
 //     name: name,
 //     shipping: {
 //       name: name,
-//       address: 
+//       address:
 //       {
 //         city: city,
 //         line1: line1,
@@ -113,4 +113,3 @@ for( i=0; i<cart.length; i++) {
 
 
 module.exports = router;
-

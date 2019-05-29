@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
     <title>Cart</title>
     <link rel="stylesheet" href="/styles/cart.css">
   </head>
@@ -36,9 +36,15 @@
       </tr>
       {{/cartItems}}
       <tr>
-        <td class="head column"><h4>Subtotal</h4></td>
+        <td class="column"><h4>Flat Rate Shipping</h4></td>
+        <td class="column"></td>
+        <td class="column"><h4>$10</h4></td>
+        <td class="column"></td>
+      </tr>
+      <tr>
+        <td class="head column"><h4>Total</h4></td>
         <td class="head column"></td>
-        <td class="head column"><h4>${{subtotal}}</h4></td>
+        <td class="head column"><h4>${{total}}</h4></td>
         <td class="head column"></td>
       </tr>
       <tr>
