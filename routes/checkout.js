@@ -36,7 +36,7 @@ for( i=0; i<cart.length; i++) {
 }
 (async () => {
   const charge = await stripe.charges.create({
-    amount: req.session.subtotal ? req.session.subtotal * 100 : 0,
+    amount: req.session.total ? req.session.total * 100 : 0,
     currency: 'usd',
     description: cartDescription(req.session.cart),
     source: token,
