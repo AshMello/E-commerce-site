@@ -9,9 +9,28 @@
   <body>
 
     {{> menu}}
-    <div class="container">
-    <h1 class="title">Contact</h1>
+    {{> meta}}
+    <div class="heading">
+      <h1>Contact</h1>
+      <span>Paige can restyle your grandmother’s box of rhinestone jewelry and vintage beads. 
+              Re-invent what you think is “junk” into beautiful,
+              wearable treasures. Leave a message below to get in touch or discuss a custom piece!</span>
     </div>
+    
+  <form action="/contact" id="contact-form" method="post" role="form">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Full Name">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="exampleFormControlTextarea1">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1"></textarea>
+        <button type="submit" class="btn btn-outline-dark">Submit</button>
+      </div>
+      
+    </form>
+
+    {{> script}}
     {{> footer}}
     {{> script}}
 
