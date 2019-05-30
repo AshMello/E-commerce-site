@@ -1,8 +1,14 @@
-.container {
-  margin: auto 250px;
+.form-group {
+  justify-content: center;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
 }
 
-.title {
+.heading {
   text-align: center;
-  padding-bottom: 20px;
+}
+
+.social {
+  padding: 50px;
 }
