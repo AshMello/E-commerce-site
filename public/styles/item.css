@@ -1,6 +1,13 @@
+html {
+font-family: 'Charm', cursive;
+font-family: 'Montserrat', sans-serif;
+position: relative;
+min-height: 100%;
+}
 
-.container {
-  margin-top: 100px;
+.container-item {
+  margin-top: 140px;
+  align-items: center;
 }
 
 .title {
@@ -10,12 +17,44 @@
 .itemList {
   list-style: none;
   align-items: center;
+  margin: 0 350px;
+}
 
+.proInfo {
+  padding-top: 35px;
+  padding-bottom: 100px;
+}
+
+.itemName {
+  font-family: 'Charm', cursive;
+}
+
+.itemDes {
+  font-family: 'Montserrat', sans-serif;
+  text-align: justify;
+  padding-bottom: 10px;
+}
+
+.itemPrice {
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
 }
 
 .itemImg {
+  float: left;
+  margin-right: 25px;
+}
+
+.img {
   width: 500px;
   height: 470px;
-  float: left;
-  margin-right: 20px;
+}
+
+.btn {
+  background-color: #796f68;
+  color: #d8d5d3;
+}
+
+.btn:hover {
+  color: white;
 }

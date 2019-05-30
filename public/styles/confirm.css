@@ -1,4 +1,6 @@
+
 .contain {
+    border: 2px solid black;
     text-align: center;
     width: 40%;
     margin-left: 30%;
