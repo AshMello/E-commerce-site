@@ -1,11 +1,33 @@
-.container {
-    border: 2px solid black;
+.contain {
     text-align: center;
-    width: 50%;
-    margin-left: 25%;
+    width: 40%;
+    margin-left: 30%;
     margin-top: 10%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #796f68;
+    color: #d8d5d3;
+    font-family: 'Montserrat', sans-serif;
 }
 
-a {
+
+.contain a {
     text-decoration: none;
+    color: #d8d5d3;
+}
+
+.contain a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+html {
+    font-family: 'Charm', cursive;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Charm', cursive;
+    font-size: 50px;
+    color: white;
 }

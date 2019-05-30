@@ -1,16 +1,9 @@
 var stripe = Stripe('pk_test_nbDNgYtT0mhQzFg2Ts1mskTo00QCID7901');
 var elements = stripe.elements();
 
-var style = {
-    base: {
-      // Add your base input styles here. For example:
-      fontSize: '16px',
-      color: "#32325d",
-    }
-  };
-  
+
   // Create an instance of the card Element.
-  var card = elements.create('card', {style: style});
+  var card = elements.create('card');
 
   card.mount("#card-element");
 

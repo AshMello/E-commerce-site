@@ -1,0 +1,44 @@
+.loginForm {
+    margin: auto;
+    text-align: center;
+    background-color: #796f68;
+    width: 50%;
+    margin-top: 10%;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.loginForm h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    padding-bottom: 18px;
+    color:white;
+}
+
+.loginForm button {
+    background-color:transparent;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 4px;
+    color:#d8d5d3;
+}
+
+.loginForm input {
+    color: #d8d5d3;
+    padding: 10px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+}
+
+.itemPlace {
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    font-family: 'Charm', cursive;
+    font-family: 'Montserrat', sans-serif;
+  }

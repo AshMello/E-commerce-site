@@ -4,19 +4,28 @@
 
     <title></title>
     {{> meta}}
+    <link rel="stylesheet" href="/styles/adminlogin.css">
   </head>
   <body>
 
     {{> menu}}
 
+  <div class="loginForm">
     <h1>Admin Login</h1>
 
     <form class="login" action="/admin-login" method="POST">
-      <input type="text" name="username" placeholder="Enter Username" />
-      <input type="password" name="password" placeholder="Enter Password" />
-      <button type="submit">Login</button>
+    <div class="itemPlace">
+      <div>
+        <input type="text" name="username" placeholder="Enter Username" />
+        <input type="password" name="password" placeholder="Enter Password" />
+      </div>
+      <div>
+        <button type="submit">Login</button>
+      </div>
+    </div>
     </form>
     {{message}}
+    </div>
     {{> footer}}
     {{> script}}
 

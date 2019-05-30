@@ -3,57 +3,61 @@
   <head>
     <title>Check Out</title>
     <link rel="stylesheet" href="/styles/checkout.css">
+    <link href="https://fonts.googleapis.com/css?family=Charm|Montserrat&display=swap" rel="stylesheet">
   </head>
   <body>
 
     <form action="/charge" method="post" id="payment-form">
     <div class="container">
-    <div class="inputItem">
-      <label for="fname">First and Last Name</label>
-        <input type="text" name="name" placeholder="name"></input>
-      </div>
-      <div class="inputItem">
-      <label for="femail">Email</label>
-        <input type="email" name="email" placeholder="email"></input>
-      </div>
-      <div class="inputItem">
-      <label for="fline1">Address Line 1</label>
-        <input type="text" name="line1" placeholder="(Street address/PO Box/Company name)"></input>
-      </div>
-      <div class="inputItem">
-      <label for="flin2">Address Line 2</label>
-        <input type="text" name="line2" placeholder="(Apartment/Suite/Unit/Building)"></input>
-      </div>
-      <div class="addressItems">
-          <div class="inputItem">
-            <label for="fcity">City</label>
-              <input type="text" name="city" placeholder="city"></input>
+       <h1>Check Out</h1>
+        <div class="inputItem">
+          <label for="fname">First and Last Name</label>
+            <input type="text" name="name" placeholder="name"></input>
           </div>
           <div class="inputItem">
-            <label for="fstate">State</label>
-              <input type="text" name="state" placeholder="state"></input>
+          <label for="femail">Email</label>
+            <input type="email" name="email" placeholder="email"></input>
           </div>
           <div class="inputItem">
-            <label for="fzipcode">Zip Code</label>
-              <input type="text" name="postal_code" placeholder="zipcode"></input>
+          <label for="fline1">Address Line 1</label>
+            <input type="text" name="line1" placeholder="(Street address/PO Box/Company name)"></input>
           </div>
-      </div>
+          <div class="inputItem">
+          <label for="flin2">Address Line 2</label>
+            <input type="text" name="line2" placeholder="(Apartment/Suite/Unit/Building)"></input>
+          </div>
+        <div class="addressItems">
+            <div class="inputItem">
+              <label for="fcity">City</label>
+                <input type="text" name="city" placeholder="city"></input>
+            </div>
+            <div class="inputItem">
+              <label for="fstate">State</label>
+                <input type="text" name="state" placeholder="state"></input>
+            </div>
+            <div class="inputItem">
+              <label for="fzipcode">Zip Code</label>
+                <input type="text" name="postal_code" placeholder="zipcode"></input>
+            </div>
+        </div>
 
         <div class="form-row">
-            <label id="cardLabel" for="card-element">
+            <label id="cardLabel" for="card-element" class="cardLabel">
             Credit or debit card
             </label>
-            <div id="card-element">
+            <div id="card-element" class="base">
             <!-- A Stripe Element will be inserted here. -->
             </div>
 
             <!-- Used to display Element errors. -->
             <div id="card-errors" role="alert"></div>
 
-            <button type="submit">Submit Payment</button>
+            <button type="submit" class="submitBtn">Submit Payment</button>
         </div>
       </div>
     </form>
+
+    <a href="/shoppingcart"><button id="returnBtn">Return</button></a>
 
 
 
