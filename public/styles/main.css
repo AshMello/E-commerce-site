@@ -2,3 +2,58 @@ html {
 font-family: 'Charm', cursive;
 font-family: 'Montserrat', sans-serif;
 }
+
+h1 {
+  font-family: 'Charm', cursive;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  text-align: center;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.shopnow a {
+  font-family: 'Montserrat', sans-serif;
+  color: #d8d5d3;
+}
+
+.shopnow a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.shop-card {
+  margin: 25px;
+  margin-bottom: 75px;
+}
+
+.shop-card a:hover p {
+  color: white;
+}
+
+.shop-btn {
+  width: 350px;
+  height: 270px;
+  background-color: #4d4a44;
+}
+
+.shop-text {
+  font-family: 'Montserrat', sans-serif;
+  color: #d8d5d3;
+  text-align: center;
+  padding-top: 15px;
+}
+.shop-img {
+  width: 350px;
+  height: 270px;
+}
+
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

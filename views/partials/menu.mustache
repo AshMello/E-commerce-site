@@ -1,6 +1,6 @@
 <div class="menu">
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4d4a44;">
       <a class="navbar-brand" href="/">
         <!-- <img src="images/pwplogo.jpg" width="70" height="auto" class="d-inline-block align-center" alt=""> -->
         Paige Peake Wright Jewelry
@@ -8,8 +8,8 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
     <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
       </li>
@@ -18,14 +18,13 @@
          Shop
        </a>
        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-         <a class="dropdown-item disabled" href="#">By Category</a>
+         <a class="dropdown-item disabled" href="#" style="color: #a6a5a2;">By Category</a>
          <a class="dropdown-item" href="/products">Shop All</a>
          <a class="dropdown-item" href="/products/category/Necklaces">Necklaces</a>
          <a class="dropdown-item" href="/products/category/BoloTies">Bolo Ties</a>
-         <a class="dropdown-item" href="/products/category/Bracelets">Bracelets</a>
          <a class="dropdown-item" href="/products/category/Rings">Rings</a>
          <a class="dropdown-item" href="/products/category/BeltBuckles">Belt Buckles</a>
-         <a class="dropdown-item disabled" href="#">By Style</a>
+         <a class="dropdown-item disabled" href="#" style="color: #a6a5a2;">By Style</a>
          <a class="dropdown-item" href="/products/style/Vintage">Vintage</a>
          <a class="dropdown-item" href="/products/style/Silver">Silver</a>
          <a class="dropdown-item" href="/products/style/Beadwork">Beaded</a>
@@ -39,31 +38,9 @@
       </li>
     </ul>
     <span class="nav-item">
-      <a class="nav-link" href="/shoppingcart">Cart {{totalItems}}</a>
+      <a class="btn btn-link" href="/shoppingcart" style="color: white; text-decoration: none;"><i class="fas fa-shopping-cart"></i> {{totalItems}}</a>
     </span>
   </div>
 </nav>
 </header>
 </div>
-
-  <!-- <div>
-    <div>
-      <a href="/products">Shop All</a>
-      <a href="/products/category/Necklaces">Necklaces</a>
-      <a href="/products/category/BoloTies">Bolo Ties</a>
-      <a href="/products/category/Bracelets">Bracelets</a>
-      <a href="/products/category/Rings">Rings</a>
-      <a href="/products/category/BeltBuckles">Belt Buckles</a>
-    </div>
-      <div>
-        <a href="/products/style/Vintage">Vintage</a>
-        <a href="/products/style/Silver">Silver</a>
-        <a href="/products/style/Beadwork">Beaded</a>
-      </div>
-  </div>
-  <a href="/about">About the Artist</a>
-  <a href="/press">Press</a>
-  <a href="/contact">Contact</a>
-  <a href="/shoppingcart">Cart {{totalItems}}</a>
-</header>
-</div> -->
