@@ -1,11 +1,12 @@
 input[type=text], [type=email] {
     width: 50%;
-    padding: 12px 20px;
+    padding: 14px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     outline: none;
     text-align: center;
     margin-left: 25%;
+    color: #d8d5d3;
   }
 
 input[type=text]:focus, [type=email]:focus {
@@ -14,6 +15,8 @@ input[type=text]:focus, [type=email]:focus {
 
 label, #cardLabel {
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #d8d5d3;
 }
 
 .inputItem {
@@ -35,4 +38,51 @@ label, #cardLabel {
 .addressItems input {
     width: 100%;
     margin: 0 auto;
+}
+
+.container {
+    background-color: #796f68;
+    margin-top: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+  .base {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    margin-top: 15px;
+  }
+
+html {
+    font-family: 'Charm', cursive;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.submitBtn {
+    background-color:transparent;
+    padding: 12px;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 4px;
+    color:#d8d5d3;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Charm', cursive;
+    color: white;
+    font-size: 50px;
+}
+
+#returnBtn {
+    border: 3px solid white;
+    background-color: #796f68;
+    color:white;
+    padding: 12px;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 8px;
 }
