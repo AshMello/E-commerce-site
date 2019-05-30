@@ -11,18 +11,22 @@
     {{> menu}}
 
     <!-- <h2 class="title">Product Info</h2> -->
-    <div class="container">
+    <div class="container-item">
     <ul class="itemList">
       {{#product}}
       <li>
-        <img class="itemImg" src={{thumbnail}} />
+        <div class="itemImg">
+        <img class="img" src={{thumbnail}} />
+      </div>
+        <div class="proInfo">
         <h1 class="itemName">{{name}}</h1>
-        <h2 class="itemPrice">${{price}}</h2>
-        <h3 class="itemDes">{{description}}</h3>
+        <h4 class="itemPrice">${{price}}</h3>
+        <p class="itemDes">{{description}}</p>
         <form class="cartBtn" action="/add-to-cart/{{id}}" method="POST">
           <input type="hidden" value={{id}} name="id" />
-          <button type="submit">Add to Cart</button>
+          <button class="btn" type="submit">Add to Cart</button>
         </form>
+      </div>
       </li>
       {{/product}}
     </ul>

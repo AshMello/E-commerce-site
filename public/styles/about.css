@@ -1,17 +1,38 @@
-.container {
-  margin: auto 250px;
+html {
+font-family: 'Charm', cursive;
+font-family: 'Montserrat', sans-serif;
+position: relative;
+min-height: 100%;
+}
+
+.container-about {
+  margin: 40px 300px;
 }
 
 .title {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   padding-bottom: 20px;
 }
 
+.bio {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
 .aboutImg {
   float: left;
-  margin-right: 20px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+}
+
+h4 {
+  font-family: 'Charm', cursive;
+  color: #796f68;
 }
 
 p {
-  font-size: 14pt;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11pt;
+  text-align: justify;
 }
