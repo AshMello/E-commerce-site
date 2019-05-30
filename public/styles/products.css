@@ -1,10 +1,21 @@
+html {
+font-family: 'Charm', cursive;
+font-family: 'Montserrat', sans-serif;
+position: relative;
+min-height: 100%;
+}
 
-.container {
-  /* margin: auto 100px; */
+.container-title {
+  text-align: center;
+  margin-top: 40px;
 }
 
 .title {
-  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.subtitle {
+  font-family: 'Charm', cursive;
 }
 
 .productList {
@@ -14,8 +25,12 @@
   justify-content: center;
 }
 
-.productList li {
+.pro-list {
   margin: 25px;
+}
+
+.productList li {
+  padding: 25px;
 }
 
 .productImg {
@@ -25,15 +40,21 @@
 }
 
 .productName {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   color: black;
 }
 
 .productPrice {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   color: black;
 }
 
-.productLink {
+.pro-list a{
   text-decoration: none;
+}
+
+.product-info {
+  padding-top: 15px;
 }

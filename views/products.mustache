@@ -9,18 +9,21 @@
   <body>
 
     {{> menu}}
-    <div class="container">
-    <h1 class="title">Products</h1>
-    <h2 class="title">{{category}}</h2>
-    <h2 class="title">{{style}}</h2>
-
+    <div class="container-title">
+    <h1 class="title">••• Products •••</h1>
+    <h1 class="subtitle">{{category}}</h1>
+    <h1 class="subtitle">{{style}}</h1>
+  </div>
+    <div class="pro-list">
     <ul class="productList">
       {{#product}}
       <li>
         <a class="productLink" href="/item/{{id}}/{{name}}">
         <img class="productImg" src={{thumbnail}} />
-        <h3 class="productName">{{name}}</h3>
+        <div class="product-info">
+        <h4 class="productName">{{name}}</h4>
         <p class="productPrice">${{price}}</p>
+      </div>
         <input type="hidden" name="itemId" value={{id}} />
         </a>
       </li>

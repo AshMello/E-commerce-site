@@ -25,18 +25,18 @@ body {
 }
 
 .dropdown-menu {
-  background-color: #4d4a44;
+  background-color: #796f68;
 }
 
 .dropdown-item {
   font-family: 'Montserrat', sans-serif;
   color: #d8d5d3;
-  background-color: #4d4a44;
+  background-color: #796f68;
 }
 
 .dropdown-item:hover {
   color: white;
-  background-color: #4d4a44;
+  background-color: #796f68;
 }
 
 .footer {
