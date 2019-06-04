@@ -1,6 +1,6 @@
 # Paige Peake Wright Jewelry #
 
-![](PPWMain.png)
+![](home.png)
 
 **Live Link:** https://paigepeakewrightjewerly.herokuapp.com/
 
